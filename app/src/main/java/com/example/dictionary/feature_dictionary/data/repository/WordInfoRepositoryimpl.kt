@@ -1,8 +1,5 @@
 package com.example.dictionary.feature_dictionary.data.repository
 
-import android.net.http.HttpException
-import android.os.Build
-import androidx.annotation.RequiresExtension
 import com.example.dictionary.core.util.Resource
 import com.example.dictionary.feature_dictionary.data.local.WordInfoDao
 import com.example.dictionary.feature_dictionary.data.remote.DictionaryApi
@@ -11,12 +8,13 @@ import com.example.dictionary.feature_dictionary.domain.repository.WordInfoRepos
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okio.IOException
+import retrofit2.HttpException
 
 class WordInfoRepositoryImpl(
+    private val api: DictionaryApi,
     private val dao: WordInfoDao,
-    private val api: DictionaryApi
-) : WordInfoRepository {
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
+
+    ) : WordInfoRepository {
     override fun getWordInfo(word: String): Flow<Resource<List<WordInfo>>> = flow {
         emit(Resource.Loading())
 

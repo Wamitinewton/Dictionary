@@ -7,7 +7,7 @@ import com.example.dictionary.feature_dictionary.domain.model.Meaning
 import com.google.gson.reflect.TypeToken
 
 @ProvidedTypeConverter
-class Coverters(
+class Converters(
     private val jsonParser: JsonParser
 ) {
     // room does not support complex data types.
