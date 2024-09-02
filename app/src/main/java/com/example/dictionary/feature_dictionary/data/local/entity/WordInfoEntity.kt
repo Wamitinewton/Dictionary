@@ -12,4 +12,13 @@ data class WordInfoEntity(
     val origin: String,
     val meanings: List<Meaning>,
     @PrimaryKey val id: Int? = null,
-)
+) {
+    fun toWordInfo(): WordInfo {
+        return WordInfo(
+            meanings = meanings,
+            word = word,
+            origin = origin,
+            phonetic = phonetic
+        )
+    }
+}
