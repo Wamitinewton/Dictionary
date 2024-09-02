@@ -6,7 +6,7 @@ import com.example.dictionary.feature_dictionary.domain.repository.WordInfoRepos
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class WordInfo(
+class GetWordInfo(
     private val repository: WordInfoRepository
 ) {
 
