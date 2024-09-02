@@ -9,6 +9,6 @@ interface JsonParser {
     // object of type T
 
     fun <T> toJson(obj: T, type: Type): String?
-    // Method to convert and object of type T
+    // Method to convert an object of type T
     // to a Json String.
 }
