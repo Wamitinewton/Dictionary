@@ -53,7 +53,7 @@ class WordInfoViewModel @Inject constructor(
                                 isLoading = false
                             )
                             _eventFlow.emit(
-                                UIEvent.showSnackbar(
+                                UIEvent.ShowSnackbar(
                                     result.message ?: "Unknown Error occurred"
                                 )
                             )
@@ -72,6 +72,6 @@ class WordInfoViewModel @Inject constructor(
 
 
     sealed class UIEvent {
-        data class showSnackbar(val message: String) : UIEvent()
+        data class ShowSnackbar(val message: String) : UIEvent()
     }
 }

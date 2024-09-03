@@ -3,9 +3,13 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("androidx.room")
 }
 
 android {
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
     namespace = "com.example.dictionary"
     compileSdk = 34
 
@@ -52,7 +56,7 @@ android {
 }
 
 dependencies {
-    val lifecycle_version = "2.8.3"
+    val lifecycle_version = "2.8.4"
 //    val arch_version = "2.2.0"
 //    val nav_version = "2.7.7"
     implementation(libs.androidx.core.ktx)
@@ -70,7 +74,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.compose.material:material:1.6.8")
+    implementation("androidx.compose.material:material:1.2.0")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
 
@@ -90,8 +94,8 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Room
-    implementation("androidx.room:room-runtime:2.3.0")
-    kapt("androidx.room:room-compiler:2.3.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 
     // Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:2.3.0")
@@ -104,4 +108,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
 
+}
+kapt {
+    correctErrorTypes = true
 }
